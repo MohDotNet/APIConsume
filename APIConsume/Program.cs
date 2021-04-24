@@ -8,7 +8,7 @@ namespace APIConsume
 
     class Program
     {
-
+        const string BaseUrl = "http://vmprod:5000/";
         static void Main(string[] args)
         {
             Console.WriteLine("Hello Calling the api!");
@@ -24,7 +24,7 @@ namespace APIConsume
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://vmprod:5000/");
+                client.BaseAddress = new Uri(BaseUrl);
 
                 var response = client.GetAsync("People");
 
@@ -49,7 +49,7 @@ namespace APIConsume
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("HTTP://vmprod:5000/");
+                client.BaseAddress = new Uri(BaseUrl);
 
                 var response = client.GetAsync("People/GetPerson/" + id);
                 var result = response.Result;
